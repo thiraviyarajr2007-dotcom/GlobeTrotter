@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter – Profile & Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #2563eb;
+      margin-top: 30px;
+    }
+
+    /* Profile */
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2563eb;
+    }
+
+    .profile input[type="file"] {
+      display: none;
+    }
+
+    .upload-btn {
+      background: #2563eb;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .field {
+      margin: 15px 0;
+    }
+
+    .field label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    /* Saved destinations */
+    .destinations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .destination {
+      background: #eef2ff;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    /* Buttons */
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .save {
+      background: #22c55e;
+      color: white;
+    }
+
+    .delete {
+      background: #dc2626;
+      color: white;
+    }
+
+    .note {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>👤 User Profile & Settings</h1>
+
+  <!-- Profile Section -->
+  <h2>Profile Information</h2>
+
+  <div class="profile">
+    <img id="profilePic" src="https://via.placeholder.com/100" alt="Profile Picture">
+
+    <div>
+      <label class="upload-btn">
+        Change Photo
+        <input type="file" accept="image/*" onchange="changePhoto(event)">
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Name</label>
+    <input id="name" placeholder="Your Name">
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <input id="email" type="email" placeholder="you@example.com">
+  </div>
+
+  <!-- Preferences -->
+  <h2>Preferences</h2>
+
+  <div class="field">
+    <label>Language Preference</label>
+    <select id="language">
+      <option>English</option>
+      <option>Tamil</option>
+      <option>Hindi</option>
+      <option>French</option>
+    </select>
+  </div>
+
+  <!-- Saved Destinations -->
+  <h2>Saved Destinations</h2>
+
+  <div class="destinations" id="savedDestinations">
+    <div class="destination">Coimbatore</div>
+    <div class="destination">Ooty</div>
+    <div class="destination">Madurai</div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class="btn save" onclick="saveProfile()">💾 Save Changes</button>
+    <button class="btn delete" onclick="deleteAccount()">🗑️ Delete Account</button>
+  </div>
+
+  <div class="note">
+    🔒 Your data is stored locally (prototype demo).
+  </div>
+
+</div>
+
+<script>
+  /* Load saved profile */
+  window.onload = () => {
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    if (profile) {
+      name.value = profile.name;
+      email.value = profile.email;
+      language.value = profile.language;
+      if (profile.photo) profilePic.src = profile.photo;
+    }
+  };
+
+  /* Change photo */
+  function changePhoto(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      profilePic.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  /* Save profile */
+  function saveProfile() {
+    const profile = {
+      name: name.value,
+      email: email.value,
+      language: language.value,
+      photo: profilePic.src
+    };
+
+    localStorage.setItem("profile", JSON.stringify(profile));
+    alert("✅ Profile saved successfully!");
+  }
+
+  /* Delete account */
+  function deleteAccount() {
+    if (confirm("⚠️ Are you sure you want to delete your account?")) {
+      localStorage.clear();
+      alert("🗑️ Account deleted (demo).");
+      location.reload();
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter – Public Itinerary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* Summary */
+    .summary {
+      display: flex;
+      justify-content: space-around;
+      background: #eef2ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .summary div {
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    /* Timeline */
+    .day {
+      border-left: 4px solid #2563eb;
+      padding-left: 20px;
+      margin-bottom: 25px;
+    }
+
+    .day h3 {
+      margin-bottom: 10px;
+      color: #2563eb;
+    }
+
+    .activity {
+      background: #f1f5f9;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .copy {
+      background: #22c55e;
+      color: white;
+    }
+
+    .share {
+      background: #2563eb;
+      color: white;
+    }
+
+    .readonly {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .public-link {
+      background: #f8fafc;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 15px;
+      word-break: break-all;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🌍 South India Explorer</h1>
+  <div class="subtitle">Shared Itinerary • View Only</div>
+
+  <!-- Public URL -->
+  <div class="public-link" id="publicLink"></div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <div>📍 3 Cities</div>
+    <div>📅 4 Days</div>
+    <div>🎯 8 Activities</div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="day">
+    <h3>Day 1 – Coimbatore</h3>
+    <div class="activity">Visit Marudhamalai Temple</div>
+    <div class="activity">Local Food Tour</div>
+  </div>
+
+  <div class="day">
+    <h3>Day 2 – Ooty</h3>
+    <div class="activity">Botanical Garden</div>
+    <div class="activity">Toy Train Ride</div>
+  </div>
+
+  <div class="day">
+    <h3>Day 3 – Madurai</h3>
+    <div class="activity">Meenakshi Amman Temple</div>
+    <div class="activity">Cultural Walk</div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class="btn copy" onclick="copyTrip()">📋 Copy Trip</button>
+    <button class="btn share" onclick="shareTrip()">🔗 Share</button>
+  </div>
+
+  <div class="readonly">
+    🔒 This is a public, read-only itinerary. Editing is disabled.
+  </div>
+
+</div>
+
+<script>
+  // Generate public URL (demo)
+  const publicURL = window.location.href;
+  document.getElementById("publicLink").innerText =
+    "🔗 Public Link: " + publicURL;
+
+  // Copy trip (simulate cloning)
+  function copyTrip() {
+    alert("✅ Trip copied to your account!\n(Prototype simulation)");
+  }
+
+  // Share using Web Share API or fallback
+  function shareTrip() {
+    if (navigator.share) {
+      navigator.share({
+        title: "Shared Trip – GlobeTrotter",
+        text: "Check out this amazing itinerary!",
+        url: publicURL
+      });
+    } else {
+      navigator.clipboard.writeText(publicURL);
+      alert("🔗 Link copied! Share it anywhere.");
+    }
+  }
+</script>
+
+</body>
+</html>

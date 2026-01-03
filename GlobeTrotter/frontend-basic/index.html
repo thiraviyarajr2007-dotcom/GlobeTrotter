@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GlobeTrotter - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="routes/timeline.html">Timeline</a>
+  <a href="routes/public-itinerary.html">Public Itinerary</a>
+  <a href="routes/admin-dashboard.html">Admin Dashboard</a>
+  <a href="routes/profile-settings.html">Profile</a>
+</nav>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <h2>🌍 GlobeTrotter</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tripSearch.html">Experiences</a>
+    <a href="itinerary.html">Itinerary</a>
+    <a href="budget.html">Budget</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION (NEW) -->
+<section class="hero-home">
+    <h1>Plan Smarter. Travel Better ✈️</h1>
+    <p>Your personalized travel planner with itineraries, activities & budget</p>
+    <a href="tripSearch.html" class="cta-btn">Explore Experiences</a>
+</section>
+
+<!-- FEATURED TRIPS (NEW) -->
+<section class="featured">
+    <h2>⭐ Featured Trips</h2>
+    <div class="featured-grid">
+        <div class="featured-card">🏖️ Goa Beach Escape</div>
+        <div class="featured-card">🛕 Tamil Nadu Heritage Tour</div>
+        <div class="featured-card">🏔️ Himalayan Adventure</div>
+    </div>
+</section>
+
+<hr>
+
+<!-- 🔽 YOUR EXISTING CITY SEARCH (UNCHANGED LOGIC) -->
+
+<section class="city-search">
+    <h1>🌍 Discover Cities</h1>
+    <p>Discover cities & add them to your trip</p>
+
+    <input type="text" id="searchInput" placeholder="Search city..." />
+
+    <select id="countryFilter">
+        <option value="all">All Countries</option>
+        <option value="India">India</option>
+        <option value="France">France</option>
+        <option value="Japan">Japan</option>
+    </select>
+
+    <div id="cityList"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

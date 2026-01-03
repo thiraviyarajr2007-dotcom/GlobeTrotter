@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Trip | GlobeTrotter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="dashboard-header">
+        <h1>🌍 GlobeTrotter</h1>
+        <a href="dashboard.html" class="back-btn">⬅ Back</a>
+    </div>
+
+    <!-- Create Trip Form -->
+    <div class="form-container">
+        <h2>Create New Trip</h2>
+        <p>Start planning your personalized journey</p>
+
+        <label>Trip Name</label>
+        <input type="text" id="tripName" placeholder="Eg: Europe Summer Trip">
+
+        <label>Start Date</label>
+        <input type="date" id="startDate">
+
+        <label>End Date</label>
+        <input type="date" id="endDate">
+
+        <label>Trip Description</label>
+        <textarea id="tripDesc" placeholder="Describe your trip..."></textarea>
+
+        <label>Cover Photo (Optional)</label>
+        <input type="file" id="coverPhoto">
+
+        <button onclick="saveTrip()">💾 Save Trip</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

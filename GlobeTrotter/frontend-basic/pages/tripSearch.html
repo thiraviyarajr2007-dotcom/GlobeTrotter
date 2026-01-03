@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter – Tours & Activities</title>
+
+  <!-- COMMON + PAGE CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tripSearch.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <h2>🌍 GlobeTrotter</h2>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="tripSearch.html">Experiences</a>
+    <a href="itinerary.html">Itinerary</a>
+    <a href="budget.html">Budget</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Find Experiences for Your Trip</h1>
+  <div class="search-area">
+    <input type="text" id="searchDest" placeholder="Where are you going?" />
+    <button onclick="searchTrips()">Search</button>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section class="filters">
+  <select id="typeFilter">
+    <option value="all">All Activities</option>
+    <option value="Sightseeing">Sightseeing</option>
+    <option value="Food">Food</option>
+    <option value="Adventure">Adventure</option>
+  </select>
+
+  <select id="costFilter">
+    <option value="all">All Budgets</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+
+  <select id="durationFilter">
+    <option value="all">All Durations</option>
+    <option value="Short">1–3 hrs</option>
+    <option value="Medium">3–5 hrs</option>
+    <option value="Long">5+ hrs</option>
+  </select>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="card-grid"></section>
+
+<!-- ✅ SCRIPT ALWAYS AT BOTTOM -->
+<script src="../js/tripSearch.js"></script>
+</body>
+</html>

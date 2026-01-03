@@ -1,0 +1,1417 @@
+/* ===== FULLSCREEN TRAVEL BACKGROUND ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 30, 60, 0.55),
+            rgba(10, 30, 60, 0.75)
+        ),
+        url("images/travel-bg.jpg");
+
+    background-size: cover;          /* KEY FIX */
+    background-position: center;     /* KEY FIX */
+    background-repeat: no-repeat;    /* KEY FIX */
+    background-attachment: scroll;   /* 🚨 FIXES PUZZLE */
+}
+
+
+
+
+
+.container {
+    text-align: center;
+}
+
+.card {
+    background: white;
+    color: black;
+    padding: 25px;
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16325c;
+}
+
+.link {
+    font-size: 12px;
+    cursor: pointer;
+    color: #1e3c72;
+}
+
+/* ===== DASHBOARD HEADER (FIXED) ===== */
+.dashboard-header {
+    background: transparent;   /* 🔥 FIX: removes blue bar */
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Logout button – top right */
+.logout {
+    background: white;
+    color: #1e3c72;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.logout:hover {
+    background: #f2f4f8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.logout:active {
+    transform: scale(0.96);
+}
+
+
+.welcome {
+    padding: 20px;
+}
+
+.section {
+    padding: 20px;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.trip-card {
+    background: white;
+    color: #1e3c72;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.25s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.25);
+}
+
+
+.city-list {
+    display: flex;
+    gap: 10px;
+}
+
+.city-card {
+    background: #eef3ff;
+    color: #1e3c72;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.plan-btn {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #ff7a18;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.plan-btn:hover {
+    background: #e66a10;
+}
+.form-container {
+    background: white;
+    padding: 30px;
+    max-width: 500px;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    margin-bottom: 5px;
+}
+
+.form-container p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.form-container textarea {
+    resize: none;
+    height: 80px;
+}
+
+.form-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+}
+/* ===== LOGIN PAGE ONLY (SAFE) ===== */
+
+.login-page {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: white;
+    width: 380px;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.login-header h1 {
+    margin: 8px 0 0;
+    color: #1e3c72;
+}
+
+.login-header p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 34px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #1e3c72;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #16325c;
+}
+
+.login-footer {
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.login-footer a {
+    display: block;
+    margin-bottom: 8px;
+    color: #1e3c72;
+    text-decoration: none;
+}
+/* ===== CLEAN MODERN LOGIN UI (FIXED) ===== */
+
+.login-page {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 380px;
+    background: #f5f6f8;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-header h1 {
+    color: #1e3c72;
+    margin-bottom: 6px;
+}
+
+.login-header p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.login-box h2 {
+    color: #1e3c72;
+    margin-bottom: 20px;
+}
+
+/* FIXED INPUTS */
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 3px rgba(30,60,114,0.15);
+}
+
+/* BUTTON */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #16325c;
+}
+
+/* FOOTER */
+.login-footer {
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.login-footer a {
+    color: #1e3c72;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.login-footer p {
+    color: #333;
+}
+/* ===== LOGIN UI POLISH (NO LOGIC CHANGE) ===== */
+
+/* Card depth refinement */
+.login-box {
+    background: #f7f9fc;
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Brand subtle animation */
+.login-header .logo {
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* Title refinement */
+.login-header h1 {
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+/* Input polish */
+.input-wrapper input {
+    background: #edf3ff;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.input-wrapper input:hover {
+    background: #e8f0ff;
+}
+
+.input-wrapper input:focus {
+    background: #ffffff;
+    border-color: #1e3c72;
+}
+
+/* Button premium feel */
+.login-btn {
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.login-btn:hover::after {
+    left: 100%;
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+/* Footer text clarity */
+.login-footer p {
+    font-size: 13px;
+    color: #444;
+}
+
+.login-footer b {
+    color: #1e3c72;
+}
+/* ===== COOL VISUAL ENHANCEMENTS (LOGIN ONLY) ===== */
+
+/* Accent background shapes */
+.login-page::before,
+.login-page::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.login-page::before {
+    top: 15%;
+    left: 20%;
+}
+
+.login-page::after {
+    bottom: 10%;
+    right: 20%;
+}
+
+/* Bring login box above accents */
+.login-box {
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Soft glowing edge */
+.login-box::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 22px;
+    background: linear-gradient(
+        120deg,
+        rgba(30,60,114,0.4),
+        rgba(255,255,255,0.6),
+        rgba(30,60,114,0.4)
+    );
+    z-index: -1;
+}
+
+/* Floating label illusion */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input::placeholder {
+    transition: 0.25s ease;
+}
+
+.input-wrapper input:focus::placeholder {
+    transform: translateY(-8px);
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+/* Input micro interaction */
+.input-wrapper input {
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.input-wrapper input:focus {
+    transform: translateY(-1px);
+}
+
+/* Button depth */
+.login-btn {
+    box-shadow:
+        0 10px 25px rgba(30,60,114,0.35),
+        inset 0 -2px 0 rgba(0,0,0,0.15);
+}
+
+.login-btn:active {
+    box-shadow:
+        0 6px 15px rgba(30,60,114,0.3),
+        inset 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* Slight text glow for brand */
+.login-header h1 {
+    text-shadow: 0 2px 10px rgba(30,60,114,0.25);
+}
+/* ===== LOGIN SCREEN ANIMATIONS (SAFE) ===== */
+
+/* Page fade in */
+.login-page {
+    animation: pageFade 0.8s ease forwards;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Login card entrance */
+.login-box {
+    animation: cardSlideUp 0.9s ease forwards;
+}
+
+@keyframes cardSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Logo gentle pulse */
+.login-header .logo {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* Input focus animation */
+.input-wrapper input {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input-wrapper input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 60, 114, 0.25);
+}
+
+/* Button hover animation */
+.login-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(30, 60, 114, 0.45);
+}
+
+/* Button click animation */
+.login-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 6px 15px rgba(30, 60, 114, 0.3);
+}
+
+/* Footer fade */
+.login-footer {
+    animation: footerFade 1.2s ease;
+}
+
+@keyframes footerFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== SOCIAL & PHONE LOGIN UI ===== */
+
+.divider {
+    margin: 18px 0;
+    font-size: 13px;
+    color: #777;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    width: 40%;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* Google button */
+.google-btn {
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.google-btn img {
+    width: 18px;
+}
+
+/* Phone login */
+.phone-login input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.phone-login button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+/* ===== EMAIL OTP LOGIN ===== */
+
+.otp-login input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.otp-login button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.google-btn {
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+/* ===== LOGIN FEATURE ENHANCEMENTS ===== */
+
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #444;
+}
+
+.register-text span {
+    color: #1e3c72;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Divider */
+.social-divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 15px;
+    color: #666;
+    font-size: 13px;
+}
+
+.social-divider::before,
+.social-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+}
+
+.social-divider span {
+    padding: 0 10px;
+}
+
+/* Social buttons */
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+/* Individual colors */
+.social-btn.whatsapp {
+    background: #25D366;
+}
+
+.social-btn.facebook {
+    background: #1877F2;
+}
+
+.social-btn.google {
+    background: #ffffff;
+    color: #444;
+    border: 1px solid #ccc;
+}
+/* FIX Google button text */
+.google-btn {
+    background: #ffffff;
+    color: #444;               /* ✅ visible text */
+    border: 1px solid #ccc;
+    font-weight: 500;
+}
+/* ===== BUTTON ANIMATIONS (LOGIN ONLY) ===== */
+
+.login-btn,
+.google-btn,
+.otp-login button {
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.login-btn:hover,
+.google-btn:hover,
+.otp-login button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(30, 60, 114, 0.35);
+}
+
+/* Click effect */
+.login-btn:active,
+.google-btn:active,
+.otp-login button:active {
+    transform: scale(0.97);
+    box-shadow: 0 6px 15px rgba(30, 60, 114, 0.25);
+}
+.google-btn:hover {
+    background: #f7f7f7;
+}
+/* ===== FORCE LOGOUT TO TOP RIGHT CORNER ===== */
+
+/* ===== SMALL LOGOUT BUTTON (TOP RIGHT) ===== */
+
+.logout {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+
+    width: auto;              /* important: no stretching */
+    padding: 6px 12px;        /* small button */
+    font-size: 12px;
+    font-weight: 600;
+
+    background: white;
+    color: #1e3c72;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.logout:hover {
+    background: #f5f7fa;
+    transform: translateY(-1px);
+}
+
+/* Click */
+.logout:active {
+    transform: scale(0.95);
+}
+
+
+.logout:hover {
+    background: #f2f4f8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.logout:active {
+    transform: scale(0.96);
+}
+/* ===== TOP SEARCH BAR ===== */
+
+.top-search {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 260px;
+    padding: 6px 14px;
+    font-size: 13px;
+
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    outline: none;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 9998;
+}
+
+.top-search::placeholder {
+    color: #888;
+}
+
+/* Focus effect */
+.top-search:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 6px 14px rgba(30,60,114,0.35);
+}
+/* ===== MODERN TOP SEARCH BAR ===== */
+
+.top-search {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+
+    width: 340px;              /* slightly bigger */
+    height: 40px;
+
+    padding: 0 18px 0 40px;    /* space for icon */
+    font-size: 14px;
+
+    border-radius: 22px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+
+    transition: all 0.25s ease;
+}
+
+/* Search icon */
+.top-search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+}
+
+/* Hover */
+.top-search:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+
+/* Focus */
+.top-search:focus {
+    width: 380px;              /* subtle expand */
+    border-color: #1e3c72;
+    box-shadow: 0 10px 28px rgba(30,60,114,0.35);
+}
+
+/* Placeholder */
+.top-search::placeholder {
+    color: #888;
+}
+/* ===== FOOTER COPYRIGHT ===== */
+
+.footer-copy {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.4px;
+    z-index: 9997;
+    user-select: none;
+}
+/* ===== TOP NAVIGATION BAR ===== */
+
+/* ===== SOLID TOP NAV BAR (NO TRANSPARENCY) ===== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+
+    background: #1e3c72;   /* solid color */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 9996;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+
+
+/* Left section */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Logo */
+.nav-logo {
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Links */
+.nav-link {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+/* Push dashboard content below nav */
+.section,
+.welcome {
+    margin-top: 70px;
+}
+/* Hide duplicate GlobeTrotter heading on dashboard */
+/* Hide duplicate GlobeTrotter heading only */
+.dashboard-title {
+    display: none;
+}
+
+/* ===== CINEMATIC DEPTH OVERLAY ===== */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05), transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+/* ===== REMOVE BIG BACKGROUND GLOBETROTTER TEXT ===== */
+.welcome h1,
+.welcome .brand-title,
+.welcome .logo,
+.dashboard h1 {
+    display: none !important;
+}
+/* ===== HERO SECTION (MAKEMYTRIP STYLE) ===== */
+.hero {
+    padding: 80px 60px 60px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+/* ===== CARD CONTAINERS ===== */
+.card-section {
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    padding: 25px;
+    margin: 40px auto;
+    max-width: 1200px;
+    color: #1e3c72;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.card-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff7a18;
+    padding-left: 12px;
+}
+body {
+    background:
+        linear-gradient(
+            rgba(10,30,60,0.65),
+            rgba(10,30,60,0.85)
+        ),
+        url("images/travel-bg.jpg");
+}
+/* ===== REMOVE LARGE GLOBETROTTER TEXT IN BODY ===== */
+.dashboard h1,
+.dashboard .logo,
+.dashboard .brand-title,
+.dashboard .big-logo,
+.dashboard h1:contains("GlobeTrotter") {
+    display: none !important;
+}
+/* ===== HERO BACKGROUND FIX ===== */
+.hero,
+.welcome {
+    background: transparent;
+}
+.hero {
+    padding: 90px 60px 70px;
+    max-width: 1200px;
+    margin: auto;
+}
+/* ===== MODERN HERO SECTION ===== */
+.welcome {
+    max-width: 1200px;
+    margin: 40px auto 30px;
+    padding: 50px 50px 40px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.10),
+        rgba(255,255,255,0.03)
+    );
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.welcome h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+/* ===== PREMIUM CTA BUTTON ===== */
+.plan-btn {
+    width: 100%;
+    max-width: 520px;
+    height: 54px;
+
+    margin-top: 26px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+    border-radius: 28px;
+
+    box-shadow: 0 18px 35px rgba(255,122,24,0.45);
+    transition: all 0.3s ease;
+}
+
+.plan-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 45px rgba(255,122,24,0.6);
+}
+/* ===== RECENT TRIPS SECTION ===== */
+.section h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* Trip cards */
+.trip-card {
+    background: rgba(255,255,255,0.96);
+    color: #222;
+
+    padding: 26px 30px;
+    border-radius: 18px;
+
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 55px rgba(0,0,0,0.25);
+}
+
+.trip-card h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.trip-card p {
+    font-size: 14px;
+    color: #555;
+}
+/* ===== LAYOUT REFINEMENT ===== */
+.section {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+body {
+    line-height: 1.6;
+}
+/* REMOVE DUPLICATE GLOBETROTTER TEXT BELOW NAVBAR */
+.brand-title,
+.dashboard-logo,
+.hero-logo,
+h1:has(img),
+h1:contains("GlobeTrotter") {
+    display: none !important;
+}
+/* REMOVE DUPLICATE BRAND TEXT ON DASHBOARD */
+.brand-title,
+.dashboard-logo,
+.logo-text,
+.hero-title {
+    display: none !important;
+}
+/* ===== CREATE TRIP BACKGROUND ===== */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 40%),
+        linear-gradient(135deg, #1e3c72, #2a5298);
+}
+/* ===== CREATE TRIP CARD ===== */
+.form-container {
+    max-width: 520px;
+    padding: 45px 40px;
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+
+    animation: slideFade 0.9s ease forwards;
+}
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.form-container h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+.form-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 28px;
+}
+.form-container input,
+.form-container textarea {
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    padding: 14px 16px;
+    font-size: 14px;
+    background: #f7f9fc;
+
+    transition: all 0.25s ease;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none;
+    background: white;
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 4px rgba(30,60,114,0.15);
+}
+
+.form-container textarea {
+    height: 110px;
+}
+input[type="file"] {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 13px;
+    color: #444;
+}
+.form-container button {
+    height: 54px;
+    border-radius: 28px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+    box-shadow: 0 18px 35px rgba(255,122,24,0.45);
+
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 45px rgba(255,122,24,0.6);
+}
+
+.form-container button:active {
+    transform: scale(0.96);
+}
+.form-container label {
+    font-size: 13px;
+    color: #333;
+    margin-top: 18px;
+}
+.plan-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 14px 28px;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    border: none;
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 30px rgba(255, 122, 24, 0.45),
+        inset 0 -2px 0 rgba(0,0,0,0.15);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.plan-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 22px 45px rgba(255, 122, 24, 0.65);
+}
+
+/* Click effect */
+.plan-btn:active {
+    transform: scale(0.96);
+}
+.plan-btn {
+    animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 14px 30px rgba(255, 122, 24, 0.45);
+    }
+    50% {
+        box-shadow: 0 20px 45px rgba(255, 122, 24, 0.7);
+    }
+}
+/* ===== FIX PLAN NEW TRIP BUTTON ===== */
+
+.plan-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 36px;
+    min-width: 320px;
+
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    border: none;
+    cursor: pointer;
+
+    text-decoration: none !important;   /* ✅ removes underline */
+    box-shadow:
+        0 18px 40px rgba(255, 122, 24, 0.55),
+        inset 0 -2px 0 rgba(0,0,0,0.18);
+
+    transition: all 0.3s ease;
+}
+
+/* If button is an <a> tag */
+.plan-btn a {
+    color: inherit;
+    text-decoration: none !important;   /* ✅ double safety */
+}
+
+/* Hover */
+.plan-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 26px 55px rgba(255, 122, 24, 0.75);
+}
+
+/* Click */
+.plan-btn:active {
+    transform: scale(0.96);
+}
+

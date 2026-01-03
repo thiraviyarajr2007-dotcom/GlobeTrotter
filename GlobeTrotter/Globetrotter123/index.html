@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | GlobeTrotter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+<div class="login-box">
+
+    <!-- Header -->
+    <div class="login-header">
+        <div class="logo">🌍</div>
+        <h1>GlobeTrotter</h1>
+        <p>Empowering Personalized Travel Planning</p>
+    </div>
+
+    <h2>Login</h2>
+
+    <!-- Email + Password Login -->
+    <div class="input-wrapper">
+        <input type="email" id="email" placeholder="Email address">
+    </div>
+
+    <div class="input-wrapper">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button class="login-btn" onclick="login()">Login</button>
+
+    <!-- Divider -->
+    <div class="divider">OR</div>
+
+    <!-- Google Login -->
+    <button class="google-btn" onclick="googleLogin()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+        Continue with Google
+    </button>
+
+    <!-- Divider -->
+    <div class="divider">OR</div>
+
+    <!-- Phone Number OTP Login -->
+    <div class="otp-login">
+        <input type="tel" id="phone" placeholder="Login with phone number">
+        <button onclick="sendOTP()">Send OTP</button>
+
+        <input type="text" id="otp" placeholder="Enter OTP" style="display:none;">
+        <button id="verifyBtn" onclick="verifyOTP()" style="display:none;">
+            Verify OTP
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-footer">
+        <a href="#">Forgot Password?</a>
+        <p>New user? <b>Sign Up</b></p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

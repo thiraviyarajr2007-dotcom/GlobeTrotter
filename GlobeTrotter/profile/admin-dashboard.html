@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter – Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    /* Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #2563eb;
+      font-size: 18px;
+    }
+
+    /* Stats */
+    .stat {
+      font-size: 28px;
+      font-weight: bold;
+      color: #22c55e;
+    }
+
+    /* ===== TABLE (FIXED) ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      table-layout: fixed; /* IMPORTANT */
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    th {
+      background: #eef2ff;
+    }
+
+    /* Action column width */
+    td.actions {
+      width: 140px;
+    }
+
+    /* Action buttons layout */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 6px 0;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .view {
+      background: #2563eb;
+      color: white;
+    }
+
+    .block {
+      background: #dc2626;
+      color: white;
+    }
+
+    .note {
+      text-align: center;
+      color: #666;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>📊 Admin / Analytics Dashboard</h1>
+
+<div class="grid">
+
+  <!-- Stats Cards -->
+  <div class="card">
+    <h2>Total Users</h2>
+    <div class="stat" id="totalUsers">120</div>
+  </div>
+
+  <div class="card">
+    <h2>Trips Created</h2>
+    <div class="stat" id="totalTrips">340</div>
+  </div>
+
+  <div class="card">
+    <h2>Active Users (This Week)</h2>
+    <div class="stat">68</div>
+  </div>
+
+  <!-- Chart: Popular Cities -->
+  <div class="card">
+    <h2>Top Cities</h2>
+    <canvas id="citiesChart"></canvas>
+  </div>
+
+  <!-- Chart: Engagement -->
+  <div class="card">
+    <h2>User Engagement</h2>
+    <canvas id="engagementChart"></canvas>
+  </div>
+
+  <!-- User Management Table (FIXED) -->
+  <div class="card">
+    <h2>User Management</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Trips</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>surya@gmail.com</td>
+          <td>5</td>
+          <td class="actions">
+            <div class="action-buttons">
+              <button class="btn view">View</button>
+              <button class="btn block">Block</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>sakthi@gmail.com</td>
+          <td>3</td>
+          <td class="actions">
+            <div class="action-buttons">
+              <button class="btn view">View</button>
+              <button class="btn block">Block</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="note">
+  🔒 Admin-only dashboard • Demo analytics data
+</div>
+
+<script>
+  /* Popular Cities Chart */
+  new Chart(document.getElementById("citiesChart"), {
+    type: "bar",
+    data: {
+      labels: ["Coimbatore", "Ooty", "Madurai", "Chennai"],
+      datasets: [{
+        label: "Trips",
+        data: [120, 90, 70, 60]
+      }]
+    }
+  });
+
+  /* Engagement Chart */
+  new Chart(document.getElementById("engagementChart"), {
+    type: "line",
+    data: {
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      datasets: [{
+        label: "Active Users",
+        data: [20, 35, 40, 30, 50, 60, 45],
+        fill: true
+      }]
+    }
+  });
+</script>
+
+</body>
+</html>

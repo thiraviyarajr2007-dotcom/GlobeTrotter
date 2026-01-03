@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter – Trip Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Timeline container */
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Day card */
+    .day {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .day-header h2 {
+      margin: 0;
+      color: #2563eb;
+    }
+
+    .toggle {
+      font-size: 18px;
+    }
+
+    /* Activities */
+    .activities {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .activity {
+      background: #eef2ff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      cursor: grab;
+    }
+
+    .activity.dragging {
+      opacity: 0.5;
+    }
+
+    .edit-btn {
+      font-size: 12px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 3px 6px;
+      cursor: pointer;
+    }
+
+    .add-activity {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .add-activity input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .add-activity button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🗺️ Trip Timeline</h1>
+
+<div class="timeline">
+
+  <!-- DAY 1 -->
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">
+      <h2>Day 1 – Coimbatore</h2>
+      <span class="toggle">➕</span>
+    </div>
+
+    <div class="activities">
+      <div class="activity" draggable="true">
+        Visit Marudhamalai Temple
+        <button class="edit-btn" onclick="editActivity(event)">Edit</button>
+      </div>
+
+      <div class="activity" draggable="true">
+        City Food Tour
+        <button class="edit-btn" onclick="editActivity(event)">Edit</button>
+      </div>
+
+      <div class="add-activity">
+        <input placeholder="New activity">
+        <button onclick="addActivity(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">
+      <h2>Day 2 – Ooty</h2>
+      <span class="toggle">➕</span>
+    </div>
+
+    <div class="activities">
+      <div class="activity" draggable="true">
+        Botanical Garden
+        <button class="edit-btn" onclick="editActivity(event)">Edit</button>
+      </div>
+
+      <div class="add-activity">
+        <input placeholder="New activity">
+        <button onclick="addActivity(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  /* Expand / Collapse day */
+  function toggleDay(header) {
+    const activities = header.nextElementSibling;
+    const icon = header.querySelector('.toggle');
+
+    if (activities.style.display === "block") {
+      activities.style.display = "none";
+      icon.textContent = "➕";
+    } else {
+      activities.style.display = "block";
+      icon.textContent = "➖";
+    }
+  }
+
+  /* Add activity */
+  function addActivity(btn) {
+    const input = btn.previousElementSibling;
+    if (!input.value.trim()) return;
+
+    const div = document.createElement("div");
+    div.className = "activity";
+    div.draggable = true;
+    div.innerHTML = `
+      ${input.value}
+      <button class="edit-btn" onclick="editActivity(event)">Edit</button>
+    `;
+
+    btn.parentElement.before(div);
+    input.value = "";
+    enableDrag();
+  }
+
+  /* Edit activity */
+  function editActivity(e) {
+    e.stopPropagation();
+    const activity = e.target.parentElement;
+    const newText = prompt("Edit activity:", activity.firstChild.textContent.trim());
+    if (newText) activity.firstChild.textContent = newText + " ";
+  }
+
+  /* Drag & drop reordering */
+  let dragged;
+
+  function enableDrag() {
+    document.querySelectorAll(".activity").forEach(item => {
+      item.addEventListener("dragstart", () => {
+        dragged = item;
+        item.classList.add("dragging");
+      });
+
+      item.addEventListener("dragend", () => {
+        item.classList.remove("dragging");
+      });
+
+      item.addEventListener("dragover", e => e.preventDefault());
+
+      item.addEventListener("drop", () => {
+        if (dragged && dragged !== item) {
+          item.before(dragged);
+        }
+      });
+    });
+  }
+
+  enableDrag();
+</script>
+
+</body>
+</html>
